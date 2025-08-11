@@ -1,4 +1,5 @@
 from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
 from data_processing import load_and_clean_data,generate_new_features
 
@@ -19,8 +20,11 @@ if __name__=='__main__':
     X,y=prepare_data(file_path)
     if X is not None and y is not None:
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
         print('X and Y have been divided. Size of the training group:')
         print(len(X_train))
         print('\nSize of the testing group:')
         print(len(X_test))
+
+        model=RandomForestClassifier(n_estimators=100, random_state=42,min_samples_split=10,min_samples_leaf=5)
+        model.fit(X_train,y_train)
+        print("model trained successfully")
