@@ -1,0 +1,11 @@
+# OS-related files
+.DS_Store
+
+# Python-related files
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Jupyter Notebook files
+.ipynb_checkpoints/
